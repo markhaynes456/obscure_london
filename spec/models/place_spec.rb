@@ -14,12 +14,13 @@ RSpec.describe Place, type: :model do
 	end
 
 	describe("Formatting output") do
+
 		before(:each) do
 			@place = Place.create(name:"London Eye", address_line_one:"London Eye", address_line_two:"Southbank", postcode:"ST199PT", description:"loren ipsum etsum loren istsum spusm loren isns usmeos loren istum epson loren itsum spson loren itsum epson loren istsum epson loren istum eposon loren itsum epseon loren itsum epson this is the long blog that should be short in the description") 
 		end
 
 		it("generates short description") do
-			expect(@place.short_description.length).to(be(150))
+			expect(@place.short_description.length).to(eq(150))
 		end
 
 		it("Generates the ID used to link to different pages") do
@@ -27,6 +28,5 @@ RSpec.describe Place, type: :model do
 		end
 
 	end
-
 
 end
