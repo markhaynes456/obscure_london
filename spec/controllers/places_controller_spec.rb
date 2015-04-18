@@ -11,6 +11,11 @@ RSpec.describe PlacesController, type: :controller do
 				expect(response).to(have_http_status(200))
 			end
 
+			it("Assigns @places variable") do
+				get :index
+				expect(assigns(:places)).to(respond_to(:each))
+			end
+
 		end
 
 	end
