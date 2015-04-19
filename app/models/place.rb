@@ -15,4 +15,12 @@ class Place < ActiveRecord::Base
 		"#" + name.tr(" ","")
 	end
 
+	def self.shopping
+		all.where(category:"Shopping")
+	end
+
+	def self.fooddrink
+		all.where(category:"Food-Drink")
+	end
+
 end
