@@ -16,7 +16,7 @@ RSpec.describe Place, type: :model do
 	describe("Formatting output") do
 
 		before(:each) do
-			@place = Place.create(name:"London Eye", address_line_one:"London Eye", address_line_two:"Southbank", postcode:"ST199PT", description:"loren ipsum etsum loren istsum spusm loren isns usmeos loren istum epson loren itsum spson loren itsum epson loren istsum epson loren istum eposon loren itsum epseon loren itsum epson this is the long blog that should be short in the description") 
+			@place = Place.create(name:"London Eye", address_line_one:"London Eye", address_line_two:"Southbank", postcode:"ST199PT", description:"loren ipsum etsum loren istsum spusm loren isns usmeos loren istum epson loren itsum spson loren itsum epson loren istsum epson loren istum eposon loren itsum epseon loren itsum epson this is the long blog that should be short in the description",category:"Shopping") 
 		end
 
 		it("generates short description") do
