@@ -1,8 +1,15 @@
-	<body>
 	<!--
 	Loader Widget to inform users of page loads jQuery Mobile Docs
 	-->
+	<script>
+		$( document ).bind( 'mobileinit', function(){ $.mobile.loader.prototype.options.text = "loading"; $.mobile.loader.prototype.options.textVisible = false; $.mobile.loader.prototype.options.theme = "a"; $.mobile.loader.prototype.options.html = ""; });
+	</script>
+
+
 	<!-- Homepage -->
+
+
+
 	<div data-role="page" id="home">
 		<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
 			<a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
@@ -64,45 +71,44 @@
 					<a href="#map">Map</a>
 				</li>
 			</ul>
-			</div>
-			<div data-role="header" data-position="fixed">
-				<a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
-				<h1>London Attraction App</h1>
-			</div>
-			<div data-role="content">
-				<div data-role="navbar" data-id="searchConstant">
-					<ul style="margin:15px;">
-						<li>
-							<a href="#family" data-role="button">Family</a>
-						</li>
-						<li>
-							<a href="#shopping" data-role="button">Shopping</a>
-						</li>
-						<li>
-							<a href="#list" data-role="button" class="ui-disabled">All</a>
-						</li>
-					</ul>
-				</div>
-				<ul data-role="listview" data-filter="true">
-				<!-- <xsl:for-each select="Attraction_Data/Attraction"> -->
-				<% @places.each do |place| %>
+		</div>
+		<div data-role="header" data-position="fixed">
+			<a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
+			<h1>London Attraction App</h1>
+		</div>
+		<div data-role="content">
+			<div data-role="navbar" data-id="searchConstant">
+				<ul style="margin:15px;">
 					<li>
-						<a data-rel="dialog" href=<%= place.page_id %> >
-
-							<img style="width:200px;height: 200px;">
-								<!-- Images need to be added -->
-							</img>
-							<h3>
-								<%= place.name %>
-							</h3>
-							<p>
-								<%= place.short_description %>
-							</p>
-						</a>
+						<a href="#family" data-role="button">Family</a>
 					</li>
-				<% end %>
+					
+					<li>
+						<a href="#shopping" data-role="button">Shopping</a>
+					</li>
+					<li>
+						<a href="#list" data-role="button" class="ui-disabled">All</a>
+					</li>
 				</ul>
 			</div>
+			<ul data-role="listview" data-filter="true">
+				<!-- <xsl:for-each select="Attraction_Data/Attraction"> -->
+				<% @places.each do |place| %>
+				<li>
+					<a href="#<%=place.page_id%>">
+						<img style="width:200px;height: 200px;"><!-- Images need to be added -->
+						</img>
+						<h3>
+						<%= place.name %>
+						</h3>
+						<p>
+							<%= place.short_description %>
+						</p>
+					</a>
+				</li>
+				<% end %>
+			</ul>
+		</div>
 		<div data-role="footer" data-id="footerConstant" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
@@ -153,17 +159,17 @@
 				</ul>
 			</div>
 			<ul data-role="listview" data-filter="true">
-				<% @places.each do |place| %>
+				<% @shopping.each do |shop| %>
 					<li>
-						<a data-rel="dialog" href= <%= place.page_id %> >
+						<a data-rel="dialog" href= "#<%=shop.page_id%>" >
 							<img style="width:200px;height: 200px;">
 								<!-- Images need to be added -->
 							</img>
 							<h3>
-								<%= place.name %>
+								<%= shop.name %>
 							</h3>
 							<p>
-								<%= place.short_description %>
+								<%= shop.short_description %>
 							</p>
 						</a>
 					</li>
@@ -187,215 +193,338 @@
 	
 	<!-- Attraction List Page Search: Family -->
 	<div data-role="page" id="family">
-	<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
-	<a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
-	<ul data-role="listview">
-	<li>
-	<a href="#home">Home</a>
-	</li>
-	<li>
-	<a href="#list" class="ui-disabled">List</a>
-	</li>
-	<li>
-	<a href="#map">Map</a>
-	</li>
-	</ul>
-	</div>
-	<div data-role="header" data-position="fixed">
-	<a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
-	<h1>London Attraction App</h1>
-	</div>
-	<div data-role="content">
-	<div data-role="navbar" data-id="searchConstant">
-	<ul style="margin:15px;">
-	<li>
-	<a href="#family" data-role="button" class="ui-disabled">Family</a>
-	</li>
-	<li>
-	<a href="#shopping" data-role="button">Shopping</a>
-	</li>
-	<li>
-	<a href="#list" data-role="button">All</a>
-	</li>
-	</ul>
-	</div>
-	<ul data-role="listview" data-filter="true">
-	<xsl:for-each select="Attraction_Data/Attraction[Category='Family']">
-	<li>
-	<a data-rel="dialog">
-	<xsl:attribute name="href">
-	<xsl:value-of select="Id_Link"/>
-	</xsl:attribute>
-	<img style="width:200px;height: 200px;">
-	<xsl:attribute name="src">
-	<xsl:value-of select="Picture"/>
-	</xsl:attribute>
-	</img>
-	<h3>
-	<xsl:value-of select="Attraction_Name"/>
-	</h3>
-	<p>
-	<xsl:value-of select="Long_Description"/>
-	</p>
-	</a>
-	</li>
-	</xsl:for-each>
-	</ul>
-	</div>
-	<div data-role="footer" data-id="footerConstant" data-position="fixed">
-	<div data-role="navbar">
-	<ul>
-	<li>
-	<a href="#" data-rel="back">Back</a>
-	</li>
-	<li>
-	<a href="#home">Home</a>
-	</li>
-	</ul>
-	</div>
-	</div>
+		<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
+			<a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
+			<ul data-role="listview">
+				<li>
+					<a href="#home">Home</a>
+				</li>
+				<li>
+					<a href="#list" class="ui-disabled">List</a>
+				</li>
+				<li>
+					<a href="#map">Map</a>
+				</li>
+			</ul>
+		</div>
+		<div data-role="header" data-position="fixed">
+			<a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
+			<h1>London Attraction App</h1>
+		</div>
+		<div data-role="content">
+			<div data-role="navbar" data-id="searchConstant">
+				<ul style="margin:15px;">
+					<li>
+						<a href="#family" data-role="button" class="ui-disabled">Family</a>
+					</li>
+					<li>
+						<a href="#shopping" data-role="button">Shopping</a>
+					</li>
+					<li>
+						<a href="#list" data-role="button">All</a>
+					</li>
+				</ul>
+			</div>
+			<ul data-role="listview" data-filter="true">
+				<% @fooddrink.each do |place| %>
+					<li>
+						<a data-rel="dialog" href="#<%=place.page_id%>" >
+							<img style="width:200px;height: 200px;">
+								<!-- Images need to be added -->
+							</img>
+							<h3>
+								<%= place.short_description %>
+							</h3>
+							<p>
+								<%= place.description %>
+							</p>
+						</a>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+		<div data-role="footer" data-id="footerConstant" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li>
+						<a href="#" data-rel="back">Back</a>
+					</li>
+					<li>
+						<a href="#home">Home</a>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 	<!-- /Attraction List Page Search: Family -->
+	
 	<!--  Attraction Map Page  -->
 	<div data-role="page" id="map">
-	<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
-	<a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
-	<ul data-role="listview">
-	<li>
-	<a href="#home">Home</a>
-	</li>
-	<li>
-	<a href="#list">List</a>
-	</li>
-	<li>
-	<a href="#map" class="ui-disabled">Map</a>
-	</li>
-	</ul>
+		<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
+			<a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
+			<ul data-role="listview">
+				<li>
+					<a href="#home">Home</a>
+				</li>
+				<li>
+					<a href="#list">List</a>
+				</li>
+				<li>
+					<a href="#map" class="ui-disabled">Map</a>
+				</li>
+			</ul>
+		</div>
+		<div data-role="header" data-position="fixed">
+			<a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
+			<h1>London Attraction App</h1>
+		</div>
+		<div data-role="content" id="mapContent">
+			<div id="map-canvas"/>
+				<button id="LocationBtn">Where are you?</button>
+				<div>
+					<b>Go To:</b>
+					<select id="goTo"></select>
+				</div>
+			</div>
+			<div data-role="footer" data-id="footerConstant" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li>
+							<a href="#" data-rel="back">Back</a>
+						</li>
+						<li>
+							<a href="#home">Home</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div data-role="header" data-position="fixed">
-	<a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
-	<h1>London Attraction App</h1>
-	</div>
-	<div data-role="content" id="mapContent">
-	<div id="map-canvas"/>
-	<button id="LocationBtn">Where are you?</button>
-	<div>
-	<b>Go To:</b>
-	<select id="goTo"></select>
-	</div>
-	</div>
-	<div data-role="footer" data-id="footerConstant" data-position="fixed">
-	<div data-role="navbar">
-	<ul>
-	<li>
-	<a href="#" data-rel="back">Back</a>
-	</li>
-	<li>
-	<a href="#home">Home</a>
-	</li>
-	</ul>
-	</div>
-	</div>
-	</div>
-	<!--  /Attraction Map Page  -->
+		<!--  /Attraction Map Page  -->
+	
 	<!--  Generate Content Pages  -->
-	<xsl:for-each select="Attraction_Data/Attraction">
-	<div data-role="page" data-position="fixed">
-	<xsl:attribute name="id">
-	<xsl:value-of select="Id"/>
-	</xsl:attribute>
-	<div data-role="header" data-position="fixed">
-	<h1>London Attraction App</h1>
+	<% @places.each do |place| %>
+	<div data-role="page" id="<%=place.page_id%>" >
+
+		<div data-role="header" data-position="fixed">
+			<h1>London Attraction App</h1>
+		</div>
+		<div data-role="content">
+			<img style="width:200px;height: 200px;">
+				<!-- Images need to be added -->
+			</img>
+			<h3>Description</h3>
+			<p>
+				<%= place.description %>
+			</p>
+			<h3>Category</h3>
+			<p>
+				<%=  place.category %>
+			</p>
+			<div data-role="collapsible" data-content-theme="b">
+				<h4>Attraction Address</h4>
+				<p>
+					<%= place.address_line_one %>
+				</p>
+				<p>
+					<%= place.address_line_two %>
+				</p>
+				<p>
+					<%= place.postcode %>
+				</p>
+			</div>
+			<div data-role="collapsible" data-content-theme="b">
+				<h4>Tube Station</h4>
+				<p>
+					<%= place.tube_station %>
+				</p>
+			</div>
+			<div data-role="collapsible" data-content-theme="b">
+				<h3>Cost</h3>
+				<ul>
+					<p>
+						Rating: <%= place.price %>
+					</p>
+				</ul>
+			</div>
+			<div data-role="collapsible" data-content-theme="b">
+				<h4>Attraction Opening Times</h4>
+				<p>
+					Monday: <%= place.opening_times_monday %>
+				</p>
+				<p>
+					Tuesday: <%= place.opening_times_tuesday %>
+				</p>
+				<p>
+					Wednesday: <%= place.opening_times_wednesday %>
+				</p>
+				<p>
+					Thursday: <%= place.opening_times_thursday %>
+				</p>
+				<p>
+					Frday: <%= place.opening_times_friday %>
+				</p>
+				<p>
+					Saturday: <%= place.opening_times_saturday %>
+				</p>
+				<p>
+					Sunday: <%= place.opening_times_sunday %>
+				</p>
+			</div>
+		<div data-role="footer" data-id="footerConstant" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li>
+						<a href="#" data-rel="back">Back</a>
+					</li>
+					<li>
+						<a href="#home">Home</a>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
-	<div data-role="content">
-	<img style="width:200px;height: 200px;">
-	<xsl:attribute name="src">
-	<xsl:value-of select="Picture"/>
-	</xsl:attribute>
-	</img>
-	<h3>Description</h3>
-	<p>
-	<xsl:value-of select="Long_Description"/>
-	</p>
-	<h3>Category</h3>
-	<p>
-	<xsl:value-of select="Category"/>
-	</p>
-	<div data-role="collapsible" data-content-theme="b">
-	<h4>Attraction Address</h4>
-	<p>
-	<xsl:value-of select="Address/Address_Line_One"/>
-	</p>
-	<p>
-	<xsl:value-of select="Address/Address_Line_Two"/>
-	</p>
-	<p>
-	<xsl:value-of select="Address/Postcode"/>
-	</p>
-	</div>
-	<div data-role="collapsible" data-content-theme="b">
-	<h4>Tube Station</h4>
-	<p>
-	<xsl:value-of select="Tube_Station"/>
-	</p>
-	</div>
-	<div data-role="collapsible" data-content-theme="b">
-	<h3>Cost</h3>
-	<ul>
-	<p>
-	Child
-	<xsl:value-of select="Price/Child"/>
-	</p>
-	<p>
-	Adult
-	<xsl:value-of select="Price/Adult"/>
-	</p>
-	</ul>
-	</div>
-	<div data-role="collapsible" data-content-theme="b">
-	<h4>Attraction Opening Times</h4>
-	<p>
-	Monday:
-	<xsl:value-of select="Opening_Times/Monday"/>
-	</p>
-	<p>
-	Tuesday:
-	<xsl:value-of select="Opening_Times/Tuesday"/>
-	</p>
-	<p>
-	Wednesday:
-	<xsl:value-of select="Opening_Times/Wednesday"/>
-	</p>
-	<p>
-	Thursday:
-	<xsl:value-of select="Opening_Times/Thursday"/>
-	</p>
-	<p>
-	Frday:
-	<xsl:value-of select="Opening_Times/Friday"/>
-	</p>
-	<p>
-	Saturday:
-	<xsl:value-of select="Opening_Times/Saturday"/>
-	</p>
-	<p>
-	Sunday:
-	<xsl:value-of select="Opening_Times/Sunday"/>
-	</p>
-	</div>
-	</div>
-	<div data-role="footer" data-id="footerConstant" data-position="fixed">
-	<div data-role="navbar">
-	<ul>
-	<li>
-	<a href="#" data-rel="back">Back</a>
-	</li>
-	<li>
-	<a href="#home">Home</a>
-	</li>
-	</ul>
-	</div>
-	</div>
-	</div>
-	</xsl:for-each>
+	<% end %>
 	<!--  /Generate Content Pages  -->
+
+	<!-- Map script -->
+
+			<script type="text/javascript">
+			/*
+			Edited code from Google Maps Documentation to produce the map shown in my application
+			https://developers.google.com/maps/documentation/javascript/
+			*/
+			var map;
+			var geocoder;
+			var directionsDisplay;
+			var directionsService = new google.maps.DirectionsService();
+			var contents = ['London Eye','Big Ben','Tower Bridge','Imperial War Museum','Oxford Circus'];
+			var address = ['EDF London EyeSE17PB','Bridge StreetSW1A0AA','Tower BridgeSE12AA','Lambeth RdSE16HZ','222 Oxford StreetW1C1DD'];
+			/*
+			Initialise my map to London approximately.
+			Edited code from Google Map Documents
+			https://developers.google.com/maps/documentation/javascript/
+			*/
+			function initialize() {
+				directionsDisplay = new google.maps.DirectionsRenderer();
+				geocoder = new google.maps.Geocoder();
+				var latlng = new google.maps.LatLng(51.5072, 0.1275);
+				var mapOptions = {
+					zoom: 13,
+					center: latlng,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+				map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+				directionsDisplay.setMap(map);
+			}
+			var myinfowindow = [];
+			/*
+			codeAddress works by scanning address[] and content[] and turning them
+			into markers on a map with information in them.
+			*/
+			function codeAddress() {
+				var count=0;
+				for(var i = 0; i < address.length; i++){
+					geocoder.geocode( { 'address': address[i]}, function(results, status) {
+						if (status == google.maps.GeocoderStatus.OK) {
+							map.setCenter(results[0].geometry.location);
+							myinfowindow[i] = new google.maps.InfoWindow({
+								content: contents[count++]
+							});
+							var mark = new google.maps.Marker({
+								map: map,
+								position: results[0].geometry.location,
+								infowindow: myinfowindow[i]
+							});
+							google.maps.event.addListener(mark, 'click', function() {
+								this.infowindow.open(map, mark);
+							});
+						} else {
+							alert("Geocode was not successful for the following reason: " + status);
+						}
+					});
+				}
+			}
+			/*
+			calcRoute is a funtion which takes the users current location 
+			and displays how they should navigate to the there chosen destination.
+			*/
+			function calcRoute() {
+				var start = currentLocation;
+				var end = goTo.value;
+				var request = {
+					origin:start,
+					destination:end,
+					travelMode: google.maps.TravelMode.DRIVING
+				};
+				directionsService.route(request, function(result, status) {
+					if (status == google.maps.DirectionsStatus.OK) {
+						directionsDisplay.setDirections(result);
+					}
+				});
+			}
+			/*
+			get Location takes the users location and places them on the map
+			*/
+			function getLocation(){
+				if(navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(function(position) {
+						pos = new google.maps.LatLng(position.coords.latitude,
+							position.coords.longitude);
+						codeLatLng();
+						map.setCenter(pos);
+					}, function() {
+						handleNoGeolocation(true);
+					});
+				} else {
+			// Browser doesn't support Geolocation
+			handleNoGeolocation(false);
+			}
+			}
+			/*
+			turns a latlng into an marker and places it on the map
+			*/
+			function codeLatLng() {
+				var input = pos;
+				var lat = pos.lat();
+				var lng = pos.lng();
+				var latlng = new google.maps.LatLng(lat, lng);
+				geocoder.geocode({'latLng': latlng}, function(results, status) {
+
+					if (status == google.maps.GeocoderStatus.OK) {
+						if (results[1]) {
+							currentLocation = results[1].formatted_address;
+							map.setZoom(11);
+							marker = new google.maps.Marker({
+								position: latlng,
+								map: map
+							});
+						}
+					} else {
+						alert("Geocoder failed due to: " + status);
+					}
+				});
+			}		
+
+			var getLocationBtn = document.getElementById('LocationBtn');
+			var goToList = document.getElementById('goTo');
+			/*
+			Creates a drop down menu so that users can choose a location to navigate to
+			*/
+			for(var i = 0; i < address.length; i++){
+				var optionElem=document.createElement("option");
+				var content =document.createTextNode(address[i]);
+				optionElem.appendChild(content);
+				optionElem.value=address[i];
+				goToList.appendChild(optionElem);
+			}
+			/*
+			The event Listeners I set up to run my functions.
+			*/
+			google.maps.event.addDomListener(window, 'load', initialize);
+			google.maps.event.addDomListener(window, 'load', codeAddress);
+			google.maps.event.addDomListener(getLocationBtn, 'click', getLocation);
+			google.maps.event.addDomListener(goToList, 'change', calcRoute);
+		</script>
+
+
