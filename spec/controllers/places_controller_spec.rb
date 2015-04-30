@@ -26,7 +26,7 @@ RSpec.describe PlacesController, type: :controller do
 				expect(flash[:notice]).not_to(be_nil)
 				expect(response).to(redirect_to(places_url))
 				expect(Place.find(1)).not_to(be_nil)	
-		end
+			end
 
 			it "Should render new template with notice error on failed save" do
 				allow_any_instance_of(Place).to(receive(:valid?)).and_return(false)
