@@ -8,7 +8,7 @@
 
 	<!-- Homepage -->
 
-
+	
 
 	<div data-role="page" id="home">
 		<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
@@ -32,6 +32,9 @@
 		</div>
 	
 		<div data-role="content">
+			
+			<i> <%= flash[:notice]  %> </i>
+
 			<a href="#list" data-role="button">
 				<h3>List Of All Attractions</h3>
 				<p> Check out all othe the Attractions in the wonderful city of london </p>

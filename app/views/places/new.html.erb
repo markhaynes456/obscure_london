@@ -20,7 +20,7 @@
 		</div>
 	
 		<div data-role="content">
-
+			<i> <%= flash[:notice] %> </i>
 			<%= form_for @place, url:{action: "create"} do |f| %>
 				<%= f.label :name %>
 				<%= f.text_field :name %>
