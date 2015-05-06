@@ -1,27 +1,37 @@
 class SessionsController < ApplicationController
 
+	before_filter :logged_in?, :only => 'index'
+
+	def index
+		@places = Place.all
+	end
 
 	def new
-
+		@user = User.new
 	end
 
 	def create
-			user = find_by(name:params["name"],password:params["password"])
-		if user.valid?	
+		user = User.find_by(user_params)
+		if user
 			session[:user] = user.id
 			flash[:notice] = "Logged in"
+			redirect_to(:sessions)
 		else
-			falsh[:notice] = "Login failed"
+			@user = User.new
+			render("new")
 		end
-	end
-
-	def destroy
-
 	end
 
 	private
 	def user_params
-		params.permit(:name, :password)
+		params.require(:user).permit(:name, :password)
 	end
+
+	def logged_in?
+		if session[:user] == nil
+			redirect_to(:new_session)
+		end
+	end
+
 
 end
