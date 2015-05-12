@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rspec-rails'
 
 # image support
-gem "paperclip", "~> 4.2" 
+gem "paperclip"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
