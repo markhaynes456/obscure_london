@@ -95,12 +95,10 @@
 				</ul>
 			</div>
 			<ul data-role="listview" data-filter="true">
-				<!-- <xsl:for-each select="Attraction_Data/Attraction"> -->
 				<% @places.each do |place| %>
 				<li>
 					<a href="#<%=place.page_id%>">
-						<img style="width:200px;height: 200px;"><!-- Images need to be added -->
-						</img>
+						<%= image_tag( place.image.url(:medium) ) %>
 						<h3>
 						<%= place.name %>
 						</h3>
