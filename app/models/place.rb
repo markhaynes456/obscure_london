@@ -12,7 +12,7 @@ class Place < ActiveRecord::Base
 	end
 
 	def page_id
-		name.tr(" ","")
+		"#" + name.tr(" ","")
 	end
 
 	def self.shopping

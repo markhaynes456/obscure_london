@@ -24,7 +24,7 @@ RSpec.describe Place, type: :model do
 		end
 
 		it("Generates the ID used to link to different pages") do
-			expect(@place.page_id).to(eq("LondonEye"))
+			expect(@place.page_id).to(eq("#LondonEye"))
 		end
 
 	end
