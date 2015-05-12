@@ -21,41 +21,11 @@
 	
 		<div data-role="content">
 			<i> <%= flash[:notice] %> </i>
-			<%= form_for @place, url:places_path, html: {:multipart => true} do |f| %>
-				<%= f.label :name %>
-				<%= f.text_field :name %>
-				<%= f.label :address_line_one %>
-				<%= f.text_field :address_line_one %>		
-				<%= f.label :address_line_two %>
-				<%= f.text_field :address_line_two %>
-				<%= f.label :postcode %>
-				<%= f.text_field :postcode %>	
-				<%= f.label :tube_station %>
-				<%= f.text_field :tube_station %>
-				<%= f.label :price %>
-				<%= f.select(:price, [['£','£'],['££','££'],['£££','£££'],['££££','££££'],['£££££','£££££']] )  %>		
-				<%= f.label :description %>
-				<%= f.text_area :description %>
-				<%= f.label :opening_times_monday %>
-				<%= f.text_field :opening_times_monday %>
-				<%= f.label :opening_times_tuesday %>
-				<%= f.text_field :opening_times_tuesday %>
-				<%= f.label :opening_times_wednesday %>
-				<%= f.text_field :opening_times_wednesday %>		
-				<%= f.label :opening_times_thursday %>
-				<%= f.text_field :opening_times_thursday %>
-				<%= f.label :opening_times_friday %>
-				<%= f.text_field :opening_times_friday %>	
-				<%= f.label :opening_times_saturday %>
-				<%= f.text_field :opening_times_saturday %>
-				<%= f.label :opening_times_sunday %>
-				<%= f.text_field :opening_times_sunday %>	
-				<%= f.label :category %>
-				<%= f.select(:category,[['EAT','EAT'],['SHOP','SHOP'],['PLAY','PLAY']]) %>
-				<%= f.label(:image) %>
-				<%= f.file_field(:image) %>
+			<%= form_for( @place ) do |f| %>
+				<%= f.text_field :name %>	
+				<%= f.file_field :image %>
 				<%= f.submit %>
-	<%	end		%>
+			<%	end		%>
 			
 		</div>
 		<div data-role="footer" data-id="footerConstant" data-position="fixed">
