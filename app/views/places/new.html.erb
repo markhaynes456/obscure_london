@@ -33,9 +33,9 @@
 				<%= f.label :tube_station %>
 				<%= f.text_field :tube_station %>
 				<%= f.label :price %>
-				<%= f.text_field :price %>		
+				<%= f.select(:price, [['£','£'],['££','££'],['£££','£££'],['££££','££££'],['£££££','£££££']] )  %>		
 				<%= f.label :description %>
-				<%= f.text_field :description %>
+				<%= f.text_area :description %>
 				<%= f.label :opening_times_monday %>
 				<%= f.text_field :opening_times_monday %>
 				<%= f.label :opening_times_tuesday %>
@@ -51,7 +51,7 @@
 				<%= f.label :opening_times_sunday %>
 				<%= f.text_field :opening_times_sunday %>	
 				<%= f.label :category %>
-				<%= f.text_field :category %>
+				<%= f.select(:category,[['EAT','EAT'],['SHOP','SHOP'],['PLAY','PLAY']]) %>
 				<%= f.submit %>
 	<%	end		%>
 			
@@ -68,5 +68,4 @@
 				</ul>
 			</div>
 		</div>
-	</div>
-	
+	</div>	
