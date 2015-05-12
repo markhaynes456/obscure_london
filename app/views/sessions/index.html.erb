@@ -26,6 +26,8 @@
 					<%= f.hidden_field(:id) %>
 					<%= f.label(:name) %>
 					<%= f.text_field(:name) %>
+					<%= f.label(:image) %>
+					<%= f.file_field(:image) %>
 					<%= f.label(:active) %>	
 					<%= check_box_tag('place[active]', place.active ? "false":"true", place.active) %>
 					<%= f.submit %>
