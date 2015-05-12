@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
 
 	def index
-		@places = Place.all
+		@places = Place.active_places
 		@shopping = Place.shopping
 		@fooddrink = Place.fooddrink
 	end
@@ -33,7 +33,7 @@ class PlacesController < ApplicationController
 	private
 	
 	def place_params
-		params.require(:place).permit(:id,:active,:name,:address_line_one,:address_line_two,:postcode,:tube_station,:price,:description,:opening_times_monday,:opening_times_tuesday,:opening_times_wednesday, :opening_times_thursday, :opening_times_friday, :opening_times_saturday,:category)
+		params.require(:place).permit(:image, :id,:active,:name,:address_line_one,:address_line_two,:postcode,:tube_station,:price,:description,:opening_times_monday,:opening_times_tuesday,:opening_times_wednesday, :opening_times_thursday, :opening_times_friday, :opening_times_saturday,:category)
 	end
 
 end
