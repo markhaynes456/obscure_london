@@ -21,7 +21,7 @@
 	
 		<div data-role="content">
 			<i> <%= flash[:notice] %> </i>
-			<%= form_for @place, url:places_path, html: {:multipart => true} do |f| %>
+			<%= form_for @place, url:{action: "create"} do |f| %>
 				<%= f.label :name %>
 				<%= f.text_field :name %>
 				<%= f.label :address_line_one %>
@@ -52,8 +52,6 @@
 				<%= f.text_field :opening_times_sunday %>	
 				<%= f.label :category %>
 				<%= f.select(:category,[['EAT','EAT'],['SHOP','SHOP'],['PLAY','PLAY']]) %>
-				<%= f.label(:image) %>
-				<%= f.file_field(:image) %>
 				<%= f.submit %>
 	<%	end		%>
 			

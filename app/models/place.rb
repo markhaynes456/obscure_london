@@ -7,8 +7,6 @@ class Place < ActiveRecord::Base
 	validates :description, presence:true
 	validates :category, presence:true
 
-	has_attached_file :image, :styles => { :medium => "300x300"}, :default_url => "images/:styles/missing.png"
-
 	def short_description
 		description[0..149]	
 	end
@@ -18,15 +16,11 @@ class Place < ActiveRecord::Base
 	end
 
 	def self.shopping
-		active_places.where(category:"Shopping")
+		all.where(category:"Shopping")
 	end
 
 	def self.fooddrink
-		active_places.where(category:"Food-Drink")
-	end
-
-	def self.active_places
-		all.where(active:true)
+		all.where(category:"Food-Drink")
 	end
 
 end
