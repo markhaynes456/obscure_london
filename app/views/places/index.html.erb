@@ -54,53 +54,56 @@
 		<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
 			<a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
 			<ul data-role="listview">
-				<li>
-					<a href="#home">Home</a>
-				</li>
-				<li>
-					<a href="#list" class="ui-disabled">List</a>
-				</li>
-				<li>
-					<a href="#map">Map</a>
-				</li>
+			<li>
+			<a href="#home">Home</a>
+			</li>
+			<li>
+			<a href="#list" class="ui-disabled">List</a>
+			</li>
+			<li>
+			<a href="#map">Map</a>
+			</li>
 			</ul>
 			</div>
 			<div data-role="header" data-position="fixed">
-				<a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
-				<h1>London Attraction App</h1>
+			<a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
+			<h1>London Attraction App</h1>
 			</div>
 			<div data-role="content">
-				<div data-role="navbar" data-id="searchConstant">
-					<ul style="margin:15px;">
-						<li>
-							<a href="#family" data-role="button">Family</a>
-						</li>
-						<li>
-							<a href="#shopping" data-role="button">Shopping</a>
-						</li>
-						<li>
-							<a href="#list" data-role="button" class="ui-disabled">All</a>
-						</li>
-					</ul>
-				</div>
+			<div data-role="navbar" data-id="searchConstant">
+			<ul style="margin:15px;">
+			<li>
+			<a href="#family" data-role="button">Family</a>
+			</li>
+			<li>
+			<a href="#shopping" data-role="button">Shopping</a>
+			</li>
+			<li>
+			<a href="#list" data-role="button" class="ui-disabled">All</a>
+			</li>
+			</ul>
+			</div>
 				<ul data-role="listview" data-filter="true">
-				<!-- <xsl:for-each select="Attraction_Data/Attraction"> -->
-				<% @places.each do |place| %>
+				<xsl:for-each select="Attraction_Data/Attraction">
 					<li>
-						<a data-rel="dialog" href=<%= place.page_id %> >
-
-							<img style="width:200px;height: 200px;">
-								<!-- Images need to be added -->
-							</img>
-							<h3>
-								<%= place.name %>
-							</h3>
-							<p>
-								<%= place.short_description %>
-							</p>
-						</a>
-					</li>
-				<% end %>
+						<a data-rel="dialog">
+					<xsl:attribute name="href">
+					<xsl:value-of select="Id_Link"/>
+					</xsl:attribute>
+					<img style="width:200px;height: 200px;">
+				<xsl:attribute name="src">
+				<xsl:value-of select="Picture"/>
+				</xsl:attribute>
+				</img>
+				<h3>
+				<xsl:value-of select="Attraction_Name"/>
+				</h3>
+				<p>
+				<xsl:value-of select="Long_Description"/>
+				</p>
+				</a>
+				</li>
+				</xsl:for-each>
 				</ul>
 			</div>
 		<div data-role="footer" data-id="footerConstant" data-position="fixed">
@@ -120,68 +123,73 @@
 	
 	<!-- Attraction List Page Search: Shopping -->
 	<div data-role="page" id="shopping">
-		<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
-			<a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
-			<ul data-role="listview">
-				<li>
-					<a href="#home">Home</a>
-				</li>
-				<li>
-					<a href="#list" class="ui-disabled">List</a>
-				</li>
-				<li>
-					<a href="#map">Map</a>
-				</li>
-			</ul>
-		</div>
-		<div data-role="header" data-position="fixed">
-			<a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
-			<h1>London Attraction App</h1>
-		</div>
-		<div data-role="content">
-			<div data-role="navbar" data-id="searchConstant">
-				<ul style="margin:15px;">
-					<li>
-						<a href="#family" data-role="button">Family</a>
-					</li>
-					<li>
-						<a href="#shopping" data-role="button" class="ui-disabled">Shopping</a>
-					</li>
-					<li>
-						<a href="#list" data-role="button">All</a>
-					</li>
-				</ul>
-			</div>
-			<ul data-role="listview" data-filter="true">
-				<% @places.each do |place| %>
-					<li>
-						<a data-rel="dialog" href= <%= place.page_id %> >
-							<img style="width:200px;height: 200px;">
-								<!-- Images need to be added -->
-							</img>
-							<h3>
-								<%= place.name %>
-							</h3>
-							<p>
-								<%= place.short_description %>
-							</p>
-						</a>
-					</li>
-				<% end %>
-			</ul>
-		</div>
-		<div data-role="footer" data-id="footerConstant" data-position="fixed">
-			<div data-role="navbar">
-				<ul>
-					<li>
-						<a href="#" data-rel="back">Back</a>
-					</li>
-					<li>
-						<a href="#home">Home</a>
-					</li>
-				</ul>
-			</div>
-		</div>
+	<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
+	<a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
+	<ul data-role="listview">
+	<li>
+	<a href="#home">Home</a>
+	</li>
+	<li>
+	<a href="#list" class="ui-disabled">List</a>
+	</li>
+	<li>
+	<a href="#map">Map</a>
+	</li>
+	</ul>
+	</div>
+	<div data-role="header" data-position="fixed">
+	<a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
+	<h1>London Attraction App</h1>
+	</div>
+	<div data-role="content">
+	<div data-role="navbar" data-id="searchConstant">
+	<ul style="margin:15px;">
+	<li>
+	<a href="#family" data-role="button">Family</a>
+	</li>
+	<li>
+	<a href="#shopping" data-role="button" class="ui-disabled">Shopping</a>
+	</li>
+	<li>
+	<a href="#list" data-role="button">All</a>
+	</li>
+	</ul>
+	</div>
+	<ul data-role="listview" data-filter="true">
+	<xsl:for-each select="Attraction_Data/Attraction[Category='Shopping']">
+	<li>
+	<a data-rel="dialog">
+	<xsl:attribute name="href">
+	<xsl:value-of select="Id_Link"/>
+	</xsl:attribute>
+	<img style="width:200px;height: 200px;">
+	<xsl:attribute name="src">
+	<xsl:value-of select="Picture"/>
+	</xsl:attribute>
+	</img>
+	<h3>
+	<xsl:value-of select="Attraction_Name"/>
+	</h3>
+	<p>
+	<xsl:value-of select="Long_Description"/>
+	</p>
+	</a>
+	</li>
+	</xsl:for-each>
+	</ul>
+	</div>
+	<div data-role="footer" data-id="footerConstant" data-position="fixed">
+	<div data-role="navbar">
+	<ul>
+	<li>
+	<a href="#" data-rel="back">Back</a>
+	</li>
+	<li>
+	<a href="#home">Home</a>
+	</li>
+	</ul>
+	</div>
+	</div>
 	</div>
 	<!-- /Attraction List Page Search: Shopping -->
 	
