@@ -1,0 +1,8 @@
+
+<%= @places.each do |place| %>
+
+	<h1><%= place.name %></h1>
+	<%= image_tag( place.image.url(:thumb) ) %>
+<% end %>
+ 
+

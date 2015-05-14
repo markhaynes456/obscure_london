@@ -1,6 +1,8 @@
 class PlacesController < ApplicationController
 
 	def index
+
+		@places = Place.all
 		@shop = Place.shop
 		@EAT = Place.eat
 		@play = Place.play
@@ -25,7 +27,7 @@ class PlacesController < ApplicationController
 	private
 
 	def place_params
-		params.require(:place).permit(:name)
+		params.require(:place).permit(:name,:image)
 	end	
 
 end

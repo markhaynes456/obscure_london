@@ -5,14 +5,14 @@ RSpec.describe Place, type: :model do
 	describe("Class methods") do
 		
 		before(:each) do
-			Place.create(:name => "Place", :category => "EAT")
-			Place.create(:name => "Place", :category => "EAT")	
-			Place.create(:name => "Place", :category => "EAT")
-			Place.create(:name => "Place", :category => "SHOP")	
-			Place.create(:name => "Place", :category => "SHOP")
-			Place.create(:name => "Place", :category => "PLAY")	
-			Place.create(:name => "Place", :category => "EAT")
-			Place.create(:name => "Place", :category => "EAT")
+			Place.create(:name => "Place",:description=>"car", :category => "EAT")
+			Place.create(:name => "Place",:description=>"car", :category => "EAT")	
+			Place.create(:name => "Place",:description=>"car", :category => "EAT")
+			Place.create(:name => "Place",:description=>"car", :category => "SHOP")	
+			Place.create(:name => "Place",:description=>"car", :category => "SHOP")
+			Place.create(:name => "Place",:description=>"car", :category => "PLAY")	
+			Place.create(:name => "Place",:description=>"car", :category => "EAT")
+			Place.create(:name => "Place",:description=>"car", :category => "EAT")
 		end
 	
 		it("Should display all Places") do

@@ -24,6 +24,11 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # Test Framework
 gem 'rspec-rails'
+# Browser simulator
+gem 'capybara'
+# File uploader
+gem 'paperclip','~> 4.2' 
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

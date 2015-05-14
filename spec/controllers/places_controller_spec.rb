@@ -9,19 +9,24 @@ RSpec.describe PlacesController, type: :controller do
 			expect(response.status).to(be(200))
 		end
 
+		it("Should assign all places to @place") do
+			get :index
+			expect(assigns(@places)).not_to(be_nil)
+		end
+
 		it("Should assign all places to EAT to @eat") do
 			get :index
-			expect(assigns(@eat)).to(respond_to(:each))
+			expect(assigns(@eat)).not_to(be_nil)
 		end
 
 		it("Should assign all places to Play to @play") do
 			get :index
-			expect(assigns(@play)).to(respond_to(:each))
+			expect(assigns(@play)).not_to(be_nil)
 		end
 
 		it("Should assign all places to SHOP to @shop") do
 			get :index
-			expect(assigns(@shop)).to(respond_to(:each))
+			expect(assigns(@shop)).not_to(be_nil)
 		end
 
 	end
