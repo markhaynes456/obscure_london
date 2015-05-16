@@ -1,10 +1,9 @@
 class PlacesController < ApplicationController
 
 	def index
-
 		@places = Place.all
 		@shop = Place.shop
-		@EAT = Place.eat
+		@eat = Place.eat
 		@play = Place.play
 	end	
 
@@ -13,8 +12,8 @@ class PlacesController < ApplicationController
 	end
 
 	def create
-		place = Place.new(place_params)
-		if place.save
+		@place = Place.new(place_params)
+		if @place.save
 			flash[:notice] = "Created"
 			redirect_to(:places)
 		else
@@ -27,7 +26,7 @@ class PlacesController < ApplicationController
 	private
 
 	def place_params
-		params.require(:place).permit(:name,:image)
+		params.require(:place).permit(:name,:description,:category,:cost,:addressi,:postcode,:tube,:monday,:tuesday,:wednesday,:thursday,:friday,:saturday,:sunday,:image)
 	end	
 
 end

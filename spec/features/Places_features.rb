@@ -18,12 +18,10 @@ describe "Place Feature", :type => :feature  do
 		fill_in('place[friday]',:with => 'london')
 		fill_in('place[saturday]',:with => 'london')
 		fill_in('place[sunday]',:with => 'london')
-	
-
 		attach_file('place[image]','spec/features/bg3.jpg')
 		click_button('Create Place')
 		expect(page).to(have_content('london'))
-		expect(page).to(have_content('bg3.jpg'))
+		expect(page).to(have_content('bg3'))
 	end
 
 	it("#INDEX displays all") do

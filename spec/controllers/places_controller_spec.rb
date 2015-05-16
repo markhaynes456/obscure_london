@@ -11,22 +11,22 @@ RSpec.describe PlacesController, type: :controller do
 
 		it("Should assign all places to @place") do
 			get :index
-			expect(assigns(@places)).not_to(be_nil)
+			expect(assigns(:places)).not_to(be_nil)
 		end
 
 		it("Should assign all places to EAT to @eat") do
 			get :index
-			expect(assigns(@eat)).not_to(be_nil)
+			expect(assigns(:eat)).not_to(be_nil)
 		end
 
 		it("Should assign all places to Play to @play") do
 			get :index
-			expect(assigns(@play)).not_to(be_nil)
+			expect(assigns(:play)).not_to(be_nil)
 		end
 
 		it("Should assign all places to SHOP to @shop") do
 			get :index
-			expect(assigns(@shop)).not_to(be_nil)
+			expect(assigns(:shop)).not_to(be_nil)
 		end
 
 	end
@@ -34,7 +34,8 @@ RSpec.describe PlacesController, type: :controller do
 	describe("#NEW") do
 
 		it("Should assign a new Place to @place") do
-			
+			get :new
+			expect(assigns(:place)).to( be_instance_of(Place))
 		end
 
 	end
