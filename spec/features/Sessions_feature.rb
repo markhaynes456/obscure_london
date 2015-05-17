@@ -5,7 +5,7 @@ describe("Session Feature", :type => :feature) do
 	describe("Log in") do
 
 		before(:each) do
-			User.create(name:"Mark",password:"password")
+			User.create(name:"mark",password:"password")
 			Place.create(name:"london",description:"Big Ben",category:"SHOP")
 		end
 

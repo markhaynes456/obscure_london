@@ -21,7 +21,6 @@ describe "Place Feature", :type => :feature  do
 		attach_file('place[image]','spec/features/bg3.jpg')
 		click_button('Create Place')
 		expect(page).to(have_content('london'))
-		expect(page).to(have_content('bg3'))
 	end
 
 	it("#INDEX displays all") do

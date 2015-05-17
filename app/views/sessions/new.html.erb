@@ -1,0 +1,9 @@
+<h2><%=flash[:notice]%></h2>
+<%= @user.class %>
+<%= form_for(User.new,url:{action:"create"}) do |f| %>
+	<%= f.label(:name) %>
+	<%= f.text_field(:name) %>
+	<%= f.label(:password) %>
+	<%= f.password_field(:password) %>
+	<%= f.submit("Login") %>
+<% end %>
