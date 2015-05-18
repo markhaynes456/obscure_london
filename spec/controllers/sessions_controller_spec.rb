@@ -11,8 +11,8 @@ RSpec.describe SessionsController, type: :controller do
 
 	describe("#CREATE") do
 
-		before(:all) do
-			User.create(:name=>"kelvin",:password=>"password")
+		before(:each) do
+			@user = User.create(:name=>"kelvin",:password=>"password")
 		end
 
 		it("On valid user credentials should create a session containing user ID") do
@@ -24,6 +24,11 @@ RSpec.describe SessionsController, type: :controller do
 			post :create, :user=>{:name=>"mark",:password=>"password"}
 			expect(session[:user_id]).to(be_nil)
 		end
+	
+		after(:each) do
+			@user.destroy
+		end
+		
 	end
 
 end

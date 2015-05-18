@@ -5,8 +5,8 @@ describe("Session Feature", :type => :feature) do
 	describe("Log in") do
 
 		before(:each) do
-			User.create(name:"mark",password:"password")
-			Place.create(name:"london",description:"Big Ben",category:"SHOP")
+			@user = User.create(name:"mark",password:"password")
+			@place = Place.create(name:"london",description:"Big Ben",category:"SHOP")
 		end
 
 		it("Should log in") do
@@ -23,6 +23,11 @@ describe("Session Feature", :type => :feature) do
 			fill_in('user[password]', :with => "password")
 			click_button("Login")
 			expect(page).to(have_content("Failure"))
+		end
+
+		after(:each) do
+			@place.destroy
+			@user.destroy
 		end
 	
 	end
