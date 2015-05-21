@@ -1,2 +1,38 @@
 <h1> Index Sessions </h1>
 <h2><%= flash[:notice] %> </h2>
+
+<% @place.each do |place| %>
+	<%= form_for(place) do |f| %>
+		<%= f.label(:name) %>
+		<%= f.text_field(:name) %>
+		<%= f.label(:description) %>
+		<%= f.text_field(:description) %>
+		<%= f.label(:category) %>
+		<%= f.select(:category,[["EAT","EAT"],["PLAY","PLAY"],["SHOP","SHOP"]]) %>
+		<%= f.label(:address) %>
+		<%= f.text_field(:address) %>
+		<%= f.label(:postcode) %>
+		<%= f.text_field(:postcode) %>
+		<%= f.label(:tube) %>
+		<%= f.text_field(:tube) %>
+		<%= f.label(:cost) %>
+		<%= f.text_field(:cost) %>
+		<%= f.label("Opening hours Monday") %>
+		<%= f.text_field(:monday) %>
+		<%= f.label("Opening hours Tuesday") %>
+		<%= f.text_field(:tuesday) %>
+		<%= f.label("Opening hours Wednesday") %>
+		<%= f.text_field(:wednesday) %>
+		<%= f.label("Opening hours Thursday") %>
+		<%= f.text_field(:thursday) %>
+		<%= f.label("Opening hours Friday") %>
+		<%= f.text_field(:friday) %>
+		<%= f.label("Opening hours Saturday") %>
+		<%= f.text_field(:saturday) %>
+		<%= f.label("Opening hours Sunday") %>
+		<%= f.text_field(:sunday) %>
+		<%= f.label(:image) %>
+		<%= f.file_field(:image) %>
+		<%= f.submit %>
+	<% end %>
+<% end %>

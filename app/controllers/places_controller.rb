@@ -1,5 +1,8 @@
 class PlacesController < ApplicationController
 
+	layout "admin", only:[:new]
+	before_filter :logged_in, only:[:new]
+
 	def index
 		@places = Place.all
 		@shop = Place.shop

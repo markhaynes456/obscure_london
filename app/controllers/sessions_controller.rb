@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+
+	layout "admin"
+	before_filter :logged_in, only: [:index]
 	
 	def new
 		@user = User.new

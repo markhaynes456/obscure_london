@@ -5,6 +5,19 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <title>LDN Attraction</title>
+<!-- jQuery Mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+<!-- Google Maps API -->
+<style type="text/css">
+.addBuffer{ margin-bottom:20px; } html{ height:100%; } body{ height:100%; } #map{ height:100%; } #mapContent{ height:80%; } #map-canvas{ height:70%; width:100%; }
+</style>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"/>
 </head>
 <body>
 

@@ -25,6 +25,11 @@ describe("Session Feature", :type => :feature) do
 			expect(page).to(have_content("Failure"))
 		end
 
+		it("#INDEX should display all posts in an editable form") do
+			visit "/sessions/"
+			expect(page).to(have_content("london"))
+		end
+
 		after(:each) do
 			@place.destroy
 			@user.destroy
