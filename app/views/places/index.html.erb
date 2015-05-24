@@ -1,458 +1,421 @@
-<!--
-Loader Widget to inform users of page loads jQuery Mobile Docs
--->
-<script>
-$( document ).bind( 'mobileinit', function(){ $.mobile.loader.prototype.options.text = "loading"; $.mobile.loader.prototype.options.textVisible = false; $.mobile.loader.prototype.options.theme = "a"; $.mobile.loader.prototype.options.html = ""; });
-</script>
 <!-- Homepage -->
 <div data-role="page" id="home">
-<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
-<a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
-<ul data-role="listview">
-<li>
-<a href="#home" class="ui-disabled">Home</a>
-</li>
-<li>
-<a href="#list">List</a>
-</li>
-<li>
-<a href="#map">Map</a>
-</li>
-</ul>
-</div>
-<div data-role="header" data-position="fixed">
-<a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
-<h1>London Attraction App</h1>
-</div>
-<div data-role="content">
-<a href="#all" data-role="button">
-<h3>List Of All Attractions</h3>
-<p>
+    <div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
+        <a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
+        <ul data-role="listview">
+            <li>
+                <a href="#home" class="ui-disabled">Home</a>
+            </li>
+            <li>
+                <a href="#all">List</a>
+            </li>
+            <li>
+                <a href="#map">Map</a>
+            </li>
+        </ul>
+    </div>
+    <div data-role="header" data-position="fixed">
+        <a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
+        <h1>London Attraction App</h1>
+    </div>
+    <div data-role="content">
+        <a href="#all" data-role="button">
+            <h3>List Of All Attractions</h3>
+            <p>
 Check out all othe the Attractions in the wonderful city of london
 </p>
-</a>
-<a href="#map" data-role="button">
-<h3>View All Attractions On Map</h3>
-<p>
+        </a>
+        <a href="#map" data-role="button">
+            <h3>View All Attractions On Map</h3>
+            <p>
 Exploring London? Why not use our map to help you find the best Attractions!
 </p>
-</a>
-</div>
-<div data-role="footer" data-id="footerConstant" data-position="fixed">
-<div data-role="navbar">
-<ul>
-<li>
-<a href="#" data-rel="back">Back</a>
-</li>
-<li>
-<a href="#home">Home</a>
-</li>
-</ul>
-</div>
-</div>
+        </a>
+    </div>
+    <div data-role="footer" data-id="footerConstant" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li>
+                    <a href="#" data-rel="back">Back</a>
+                </li>
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 <!--  /Homepage  -->
 <!-- Attraction List Page -->
 <div data-role="page" id="all">
-<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
-<a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
-<ul data-role="listview">
-<li>
-<a href="#home">Home</a>
-</li>
-<li>
-<a href="#list" class="ui-disabled">List</a>
-</li>
-<li>
-<a href="#map">Map</a>
-</li>
-</ul>
-</div>
-<div data-role="header" data-position="fixed">
-<a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
-<h1>London Attraction App</h1>
-</div>
-<div data-role="content">
-<div data-role="navbar" data-id="searchConstant">
-<ul style="margin:15px;">
-	<li>
-		<a href="#play" data-role="button">PLAY</a>
-	</li>
-	<li>
-		<a href="#shop" data-role="button">SHOP</a>
-	</li>
-	<li>
-		<a href="#eat" data-role="button">EAT</a>
-	</li>
-	<li>
-		<a href="#all" data-role="button">ALL</a>
-	</li>
-</ul>
-</div>
-<ul data-role="listview" data-filter="true">
-<% @places.each do |place| %>
-	<li>
-<a data-rel="dialog" href=<%="#".concat(place.name.tr(" ","")) %> >
-<%= image_tag(place.image.url(:thumb)) %>
-<h3>
-<%= place.name %>
-</h3>
-<p>
-<%= place.description[0..150] %>
-</p>
-</a>
-</li>
-<% end %>
-
-</ul>
-</div>
-<div data-role="footer" data-id="footerConstant" data-position="fixed">
-<div data-role="navbar">
-<ul>
-<li>
-<a href="#" data-rel="back">Back</a>
-</li>
-<li>
-<a href="#home">Home</a>
-</li>
-</ul>
-</div>
-</div>
+    <div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
+        <a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
+        <ul data-role="listview">
+            <li>
+                <a href="#home" class="ui-disabled">Home</a>
+            </li>
+            <li>
+                <a href="#all">List</a>
+            </li>
+            <li>
+                <a href="#map">Map</a>
+            </li>
+        </ul>
+    </div>
+    <div data-role="header" data-position="fixed">
+        <a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
+        <h1>London Attraction App</h1>
+    </div>
+    <div data-role="content">
+        <div data-role="navbar" data-id="searchConstant">
+            <ul style="margin:15px;">
+                <li>
+                    <a href="#play" data-role="button">PLAY</a>
+                </li>
+                <li>
+                    <a href="#shop" data-role="button">SHOP</a>
+                </li>
+                <li>
+                    <a href="#eat" data-role="button">EAT</a>
+                </li>
+                <li>
+                    <a href="#all" data-role="button">ALL</a>
+                </li>
+            </ul>
+        </div>
+        <ul data-role="listview" data-filter="true"><% @places.each do |place| %>
+            <li>
+                <a data-rel="dialog" href="<%="#".concat(place.name.tr(" ","")) %>" ><%= image_tag(place.image.url(:thumb)) %>
+                    <h3><%= place.name %>
+                    </h3>
+                    <p><%= place.description[0..150] %>
+                    </p>
+                </a>
+            </li><% end %>
+        </ul>
+    </div>
+    <div data-role="footer" data-id="footerConstant" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li>
+                    <a href="#" data-rel="back">Back</a>
+                </li>
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 <!-- /Attraction List Page -->
-
 <!-- Attraction List Page Search: Shopping -->
 <div data-role="page" id="shop">
-<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
-<a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
-<ul data-role="listview">
-<li>
-<a href="#home">Home</a>
-</li>
-<li>
-<a href="#list" class="ui-disabled">List</a>
-</li>
-<li>
-<a href="#map">Map</a>
-</li>
-</ul>
-</div>
-<div data-role="header" data-position="fixed">
-<a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
-<h1>London Attraction App</h1>
-</div>
-<div data-role="content">
-<div data-role="navbar" data-id="searchConstant">
-<ul style="margin:15px;">
-	<li>
-		<a href="#play" data-role="button">PLAY</a>
-	</li>
-	<li>
-		<a href="#shop" data-role="button">SHOP</a>
-	</li>
-	<li>
-		<a href="#eat" data-role="button">EAT</a>
-	</li>
-	<li>
-		<a href="#all" data-role="button">ALL</a>
-	</li>
-</ul>
-</div>
-<ul data-role="listview" data-filter="true">
-<% @shop.each do |place| %>
-	<li>
-<a data-rel="dialog" href=<%="#".concat(place.name.tr(" ","")) %> >
-<%= image_tag(place.image.url(:thumb)) %>
-<h3>
-<%= place.name %>
-</h3>
-<p>
-<%= place.description[0..150] %>
-</p>
-</a>
-</li>
-<% end %>
-
-</ul>
-</div>
-<div data-role="footer" data-id="footerConstant" data-position="fixed">
-<div data-role="navbar">
-<ul>
-<li>
-<a href="#" data-rel="back">Back</a>
-</li>
-<li>
-<a href="#home">Home</a>
-</li>
-</ul>
-</div>
-</div>
+    <div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
+        <a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
+        <ul data-role="listview">
+            <li>
+                <a href="#home" class="ui-disabled">Home</a>
+            </li>
+            <li>
+                <a href="#all">List</a>
+            </li>
+            <li>
+                <a href="#map">Map</a>
+            </li>
+        </ul>
+    </div>
+    <div data-role="header" data-position="fixed">
+        <a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
+        <h1>London Attraction App</h1>
+    </div>
+    <div data-role="content">
+        <div data-role="navbar" data-id="searchConstant">
+            <ul style="margin:15px;">
+                <li>
+                    <a href="#play" data-role="button">PLAY</a>
+                </li>
+                <li>
+                    <a href="#shop" data-role="button">SHOP</a>
+                </li>
+                <li>
+                    <a href="#eat" data-role="button">EAT</a>
+                </li>
+                <li>
+                    <a href="#all" data-role="button">ALL</a>
+                </li>
+            </ul>
+        </div>
+        <ul data-role="listview" data-filter="true"><% @shop.each do |place| %>
+            <li>
+                <a data-rel="dialog" href="<%="#".concat(place.name.tr(" ","")) %>" ><%= image_tag(place.image.url(:thumb)) %>
+                    <h3><%= place.name %>
+                    </h3>
+                    <p><%= place.description[0..150] %>
+                    </p>
+                </a>
+            </li><% end %>
+        </ul>
+    </div>
+    <div data-role="footer" data-id="footerConstant" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li>
+                    <a href="#" data-rel="back">Back</a>
+                </li>
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 <!-- /Attraction List Page Search: Shopping -->
 <!-- Attraction List Page Search: eat -->
 <div data-role="page" id="eat">
-<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
-<a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
-<ul data-role="listview">
-<li>
-<a href="#home">Home</a>
-</li>
-<li>
-<a href="#list" class="ui-disabled">List</a>
-</li>
-<li>
-<a href="#map">Map</a>
-</li>
-</ul>
-</div>
-<div data-role="header" data-position="fixed">
-<a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
-<h1>London Attraction App</h1>
-</div>
-<div data-role="content">
-<div data-role="navbar" data-id="searchConstant">
-<ul style="margin:15px;">
-	<li>
-		<a href="#play" data-role="button">PLAY</a>
-	</li>
-	<li>
-		<a href="#shop" data-role="button">SHOP</a>
-	</li>
-	<li>
-		<a href="#eat" data-role="button">EAT</a>
-	</li>
-	<li>
-		<a href="#all" data-role="button">ALL</a>
-	</li>
-</ul>
-</div>
-<ul data-role="listview" data-filter="true">
-<% @eat.each do |place| %>
-	<li>
-<a data-rel="dialog" href=<%="#".concat(place.name.tr(" ","")) %> >
-<%= image_tag(place.image.url(:thumb)) %>
-<h3>
-<%= place.name %>
-</h3>
-<p>
-<%= place.description[0..150] %>
-</p>
-</a>
-</li>
-<% end %>
-</ul>
-</div>
-<div data-role="footer" data-id="footerConstant" data-position="fixed">
-<div data-role="navbar">
-<ul>
-<li>
-<a href="#" data-rel="back">Back</a>
-</li>
-<li>
-<a href="#home">Home</a>
-</li>
-</ul>
-</div>
-</div>
+    <div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
+        <a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
+        <ul data-role="listview">
+            <li>
+                <a href="#home" class="ui-disabled">Home</a>
+            </li>
+            <li>
+                <a href="#all">List</a>
+            </li>
+            <li>
+                <a href="#map">Map</a>
+            </li>
+        </ul>
+    </div>
+    <div data-role="header" data-position="fixed">
+        <a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
+        <h1>London Attraction App</h1>
+    </div>
+    <div data-role="content">
+        <div data-role="navbar" data-id="searchConstant">
+            <ul style="margin:15px;">
+                <li>
+                    <a href="#play" data-role="button">PLAY</a>
+                </li>
+                <li>
+                    <a href="#shop" data-role="button">SHOP</a>
+                </li>
+                <li>
+                    <a href="#eat" data-role="button">EAT</a>
+                </li>
+                <li>
+                    <a href="#all" data-role="button">ALL</a>
+                </li>
+            </ul>
+        </div>
+        <ul data-role="listview" data-filter="true"><% @eat.each do |place| %>
+            <li>
+                <a data-rel="dialog" href="<%="#".concat(place.name.tr(" ","")) %>" ><%= image_tag(place.image.url(:thumb)) %>
+                    <h3><%= place.name %>
+                    </h3>
+                    <p><%= place.description[0..150] %>
+                    </p>
+                </a>
+            </li><% end %>
+        </ul>
+    </div>
+    <div data-role="footer" data-id="footerConstant" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li>
+                    <a href="#" data-rel="back">Back</a>
+                </li>
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 <!-- /Attraction List Page Search: eat -->
-
 <!-- Attraction List Page Search: Play -->
 <div data-role="page" id="play">
-<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
-<a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
-<ul data-role="listview">
-<li>
-<a href="#home">Home</a>
-</li>
-<li>
-<a href="#list" class="ui-disabled">List</a>
-</li>
-<li>
-<a href="#map">Map</a>
-</li>
-</ul>
-</div>
-<div data-role="header" data-position="fixed">
-<a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
-<h1>London Attraction App</h1>
-</div>
-<div data-role="content">
-<div data-role="navbar" data-id="searchConstant">
-<ul style="margin:15px;">
-	<li>
-		<a href="#play" data-role="button">PLAY</a>
-	</li>
-	<li>
-		<a href="#shop" data-role="button">SHOP</a>
-	</li>
-	<li>
-		<a href="#eat" data-role="button">EAT</a>
-	</li>
-	<li>
-		<a href="#all" data-role="button">ALL</a>
-	</li>
-</ul>
-</div>
-<ul data-role="listview" data-filter="true">
-<% @play.each do |place| %>
-	<li>
-<a data-rel="dialog" href=<%="#".concat(place.name.tr(" ","")) %> >
-<%= image_tag(place.image.url(:thumb)) %>
-<h3>
-<%= place.name %>
-</h3>
-<p>
-<%= place.description[0..150] %>
-</p>
-</a>
-</li>
-<% end %>
-</ul>
-</div>
-<div data-role="footer" data-id="footerConstant" data-position="fixed">
-<div data-role="navbar">
-<ul>
-<li>
-<a href="#" data-rel="back">Back</a>
-</li>
-<li>
-<a href="#home">Home</a>
-</li>
-</ul>
-</div>
-</div>
+    <div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
+        <a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
+        <ul data-role="listview">
+            <li>
+                <a href="#home" class="ui-disabled">Home</a>
+            </li>
+            <li>
+                <a href="#all">List</a>
+            </li>
+            <li>
+                <a href="#map">Map</a>
+            </li>
+        </ul>
+    </div>
+    <div data-role="header" data-position="fixed">
+        <a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
+        <h1>London Attraction App</h1>
+    </div>
+    <div data-role="content">
+        <div data-role="navbar" data-id="searchConstant">
+            <ul style="margin:15px;">
+                <li>
+                    <a href="#play" data-role="button">PLAY</a>
+                </li>
+                <li>
+                    <a href="#shop" data-role="button">SHOP</a>
+                </li>
+                <li>
+                    <a href="#eat" data-role="button">EAT</a>
+                </li>
+                <li>
+                    <a href="#all" data-role="button">ALL</a>
+                </li>
+            </ul>
+        </div>
+        <ul data-role="listview" data-filter="true"><% @play.each do |place| %>
+            <li>
+                <a data-rel="dialog" href="<%="#".concat(place.name.tr(" ","")) %>" >
+                	<%= image_tag(place.image.url(:thumb)) %>
+                    <h3><%= place.name %>
+                    </h3>
+                    <p><%= place.description[0..150] %>
+                    </p>
+                </a>
+            </li><% end %>
+        </ul>
+    </div>
+    <div data-role="footer" data-id="footerConstant" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li>
+                    <a href="#" data-rel="back">Back</a>
+                </li>
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 <!-- /Attraction List Page Search: Play -->
-
 <!--  Attraction Map Page  -->
 <div data-role="page" id="map">
-<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" data-theme="a">
-<a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
-<ul data-role="listview">
-<li>
-<a href="#home">Home</a>
-</li>
-<li>
-<a href="#list">List</a>
-</li>
-<li>
-<a href="#map" class="ui-disabled">Map</a>
-</li>
-</ul>
-</div>
-<div data-role="header" data-position="fixed">
-<a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
-<h1>London Attraction App</h1>
-</div>
-<div data-role="content" id="mapContent">
-<div id="map-canvas"/>
-<button id="LocationBtn">Where are you?</button>
-<div>
-<b>Go To:</b>
-<select id="goTo"></select>
-</div>
-</div>
-<div data-role="footer" data-id="footerConstant" data-position="fixed">
-<div data-role="navbar">
-<ul>
-<li>
-<a href="#" data-rel="back">Back</a>
-</li>
-<li>
-<a href="#home">Home</a>
-</li>
-</ul>
-</div>
-</div>
+    
+<h1> Map - Coming Soon </h1>
+    <div data-role="panel" id="mypanel" data-position="left" data-theme="a">
+        <a href="#my-header" data-rel="close" data-role="button" data-theme="a" class="addBuffer" data-icon="delete">Close</a>
+        <ul data-role="listview">
+            <li>
+                <a href="#home" class="ui-disabled">Home</a>
+            </li>
+            <li>
+                <a href="#all">List</a>
+            </li>
+            <li>
+                <a href="#map">Map</a>
+            </li>
+        </ul>
+    </div>
+    <div data-role="header" data-position="fixed">
+        <a href="#mypanel" data-icon="grid" data-mini="true">Navigation</a>
+        <h1>London Attraction App</h1>
+    </div>
+    <div data-role="content" id="mapContent">
+	        <div id="map-canvas"/>
+	        <button id="LocationBtn">Where are you?</button>
+	        <div>
+	            <b>Go To:</b>
+	            <select id="goTo"></select>
+	        </div>
+	    </div>
+	    <div data-role="footer" data-id="footerConstant" data-position="fixed">
+	        <div data-role="navbar">
+	            <ul>
+	                <li>
+	                    <a href="#" data-rel="back">Back</a>
+	                </li>
+	                <li>
+	                    <a href="#home">Home</a>
+	                </li>
+	            </ul>
+	        </div>
+	    </div>
+	</div>
 </div>
 <!--  /Attraction Map Page  -->
 <!--  Generate Content Pages  -->
-
-
-<%= @places.each do |place| %>
-<div data-role="page" data-position="fixed" id=<%= place.name.tr(" ","")%>>
-<div data-role="header" data-position="fixed">
-<h1>London Attraction App</h1>
-</div>
-<div data-role="content">
-<%= image_tag(place.image.url(:medium)) %>
-<h3>Description</h3>
-<p>
-<%= place.description %>
-</p>
-<h3>Category</h3>
-<p>
-<%= place.category %>
-</p>
-<div data-role="collapsible" data-content-theme="b">
-<h4>Attraction Address</h4>
-<p>
-<%= place.address %>
-</p>
-
-<p>
-<%= place.postcode %>
-</p>
-</div>
-<div data-role="collapsible" data-content-theme="b">
-<h4>Tube Station</h4>
-<p>
-<%= place.tube %>
-</p>
-</div>
-<div data-role="collapsible" data-content-theme="b">
-<h3>Cost</h3>
-<ul>
-<p>
-<%= place.cost %>
-</p>
-</ul>
-</div>
-<div data-role="collapsible" data-content-theme="b">
-<h4>Attraction Opening Times</h4>
-<p>
+<% @places.each do |place| %>
+<div data-role="page" id="<%= place.name.tr(" ","")%>">
+    <div data-role="header" data-position="fixed">
+        <h1>London Attraction App</h1>
+    </div>
+    <div data-role="content"><%= image_tag(place.image.url(:medium)) %>
+        <h3>Description</h3>
+        <p><%= place.description %>
+        </p>
+        <h3>Category</h3>
+        <p><%= place.category %>
+        </p>
+        <div data-role="collapsible" data-content-theme="b">
+            <h4>Attraction Address</h4>
+            <p><%= place.address %>
+            </p>
+            <p><%= place.postcode %>
+            </p>
+        </div>
+        <div data-role="collapsible" data-content-theme="b">
+            <h4>Tube Station</h4>
+            <p><%= place.tube %>
+            </p>
+        </div>
+        <div data-role="collapsible" data-content-theme="b">
+            <h3>Cost</h3>
+            <ul>
+                <p><%= place.cost %>
+                </p>
+            </ul>
+        </div>
+        <div data-role="collapsible" data-content-theme="b">
+            <h4>Attraction Opening Times</h4>
+            <p>
 Monday:
 <%= place.monday %>
-</p>
-<p>
+            </p>
+            <p>
 Tuesday:
 <%= place.tuesday %>
-</p>
-<p>
+            </p>
+            <p>
 Wednesday:
 <%= place.wednesday %>
-</p>
-<p>
+            </p>
+            <p>
 Thursday:
 <%= place.thursday %>
-</p>
-<p>
+            </p>
+            <p>
 Frday:
 <%= place.friday %>
-</p>
-<p>
+            </p>
+            <p>
 Saturday:
 <%= place.saturday %>
-</p>
-<p>
+            </p>
+            <p>
 Sunday:
 <%= place.sunday %>
-</p>
-</div>
-</div>
-<div data-role="footer" data-id="footerConstant" data-position="fixed">
-<div data-role="navbar">
-<ul>
-<li>
-<a href="#" data-rel="back">Back</a>
-</li>
-<li>
-<a href="#home">Home</a>
-</li>
-</ul>
-</div>
-</div>
+            </p>
+        </div>
+    </div>
+    <div data-role="footer" data-id="footerConstant" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li>
+                    <a href="#" data-rel="back">Back</a>
+                </li>
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 <% end %>
 <!--  /Generate Content Pages  -->

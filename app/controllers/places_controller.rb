@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
 
-	layout "admin", only:[:new]
+	#  layout "admin", only:[:new]
 	before_filter :logged_in, only:[:new]
 
 	def index
@@ -29,7 +29,7 @@ class PlacesController < ApplicationController
 	private
 
 	def place_params
-		params.require(:place).permit(:name,:description,:category,:cost,:addressi,:postcode,:tube,:monday,:tuesday,:wednesday,:thursday,:friday,:saturday,:sunday,:image)
+		params.require(:place).permit(:name,:description,:category,:cost,:address,:postcode,:tube,:monday,:tuesday,:wednesday,:thursday,:friday,:saturday,:sunday,:image)
 	end	
 
 end

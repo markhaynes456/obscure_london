@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
 
 	def logged_in
 		if session['user_id'].is_a?(Fixnum)
-			
 		else
 			redirect_to(:new_session)
 		end

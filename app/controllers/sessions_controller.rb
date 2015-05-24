@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
 
-	layout "admin"
 	before_filter :logged_in, only: [:index]
 	
 	def new
@@ -12,7 +11,7 @@ class SessionsController < ApplicationController
 		if @user.respond_to?("valid?")
 			flash['notice'] = "Success"
 			session['user_id'] = @user.id
-			redirect_to(:sessions)
+			redirect_to(:places)
 		else
 			flash['notice'] = "Failure"
 			redirect_to(:new_session)
