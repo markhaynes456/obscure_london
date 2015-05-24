@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-
+<%= javascript_include_tag "application" %>
 <%= stylesheet_link_tag "application", :media => "all" %>
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -45,17 +45,20 @@
 		Edited code from Google Maps Documentation to produce the map shown in my application
 		https://developers.google.com/maps/documentation/javascript/
 	*/
+	/*
 	var map;
 	var geocoder;
 	var directionsDisplay;
 	var directionsService = new google.maps.DirectionsService();
 	var contents = ['London Eye','Big Ben','Tower Bridge','Imperial War Museum','Oxford Circus'];
 	var address = ['EDF London EyeSE17PB','Bridge StreetSW1A0AA','Tower BridgeSE12AA','Lambeth RdSE16HZ','222 Oxford StreetW1C1DD'];
+	*/
 	/*
 		Initialise my map to London approximately.
 		Edited code from Google Map Documents
 		https://developers.google.com/maps/documentation/javascript/
 	*/
+	 /* 
 	  function initialize() {
 		directionsDisplay = new google.maps.DirectionsRenderer();
 		geocoder = new google.maps.Geocoder();
@@ -69,10 +72,12 @@
 		directionsDisplay.setMap(map);
 	  }
 	var myinfowindow = [];
+	*/
 	/*
 		codeAddress works by scanning address[] and content[] and turning them
 		into markers on a map with information in them.
 	*/
+	  /*
 	  function codeAddress() {
 		var count=0;
 		for(var i = 0; i < address.length; i++){
@@ -96,10 +101,12 @@
 		});
 		}
 	  }
+	  */
 	/*
 		calcRoute is a funtion which takes the users current location 
 		and displays how they should navigate to the there chosen destination.
 	*/
+	/*
 	function calcRoute() {
 	  var start = currentLocation;
 	  var end = goTo.value;
@@ -114,9 +121,11 @@
 		}
 	  });
 	}
+	*/
 	/*
 		get Location takes the users location and places them on the map
 	*/
+	/*
 	function getLocation(){
 	  if(navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
@@ -132,9 +141,11 @@
 		handleNoGeolocation(false);
 	  }
 	}
+	*/
 	/*
 		turns a latlng into an marker and places it on the map
 	*/
+	/*
 	 function codeLatLng() {
 		var input = pos;
 		var lat = pos.lat();
@@ -159,9 +170,11 @@
 
 	var getLocationBtn = document.getElementById('LocationBtn');
 	var goToList = document.getElementById('goTo');
+	*/
 	/*
 		Creates a drop down menu so that users can choose a location to navigate to
 	*/
+	/*
 	for(var i = 0; i < address.length; i++){
 	  var optionElem=document.createElement("option");
 	  var content =document.createTextNode(address[i]);
@@ -169,12 +182,15 @@
 	   optionElem.value=address[i];
 	   goToList.appendChild(optionElem);
 	}
+	*/
 	/*
 		The event Listeners I set up to run my functions.
 	*/
+	/*
 	google.maps.event.addDomListener(window, 'load', initialize);
 	google.maps.event.addDomListener(window, 'load', codeAddress);
 	google.maps.event.addDomListener(getLocationBtn, 'click', getLocation);
 	google.maps.event.addDomListener(goToList, 'change', calcRoute);
+	*/
 </script>
 </html>

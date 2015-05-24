@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
 
 	#  layout "admin", only:[:new]
-	before_filter :logged_in, only:[:new]
+	before_filter :logged_in, only:[:new, :edit]
 
 	def index
 		@places = Place.all
@@ -25,6 +25,24 @@ class PlacesController < ApplicationController
 		end
 	end
 
+	def update
+		@place = Place.find_by(params[:id])
+		if @place.update_attributes(place_params)
+			redirect_to(:places)
+		else
+			redirect_to(:edit_palce)
+		end
+	end
+
+	def edit
+		@place = Place.find(params[:id])
+	end
+
+	def destroy
+    	@place = Place.find(params[:id])
+    	@place.destroy
+    	redirect_to(:places)
+  	end
 
 	private
 
